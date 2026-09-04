@@ -5,7 +5,10 @@ main { max-width:1024px; margin:40px auto; padding: 30px; background: white; bor
 .hidden { display: none; }
 .smaller { font-size: 0.7rem; }
 h1 { color:#1565C0; }
-button { user-select: none; border-radius:8px; background: #d0d0d0; }
+button { user-select: none; border-radius:8px; background: #d0d0d0; padding: 5px 8px; font-size:1.2rem; 
+    -webkit-appearance: none; /* Removes iOS default styling */
+    appearance: none;
+    color: #000000 !important; }
 .errorLabel { margin: 20px 50px; padding: 20px; font-weight: bold; background: #f0a0a0; }
 
 table { table-layout: fixed; width:100%; border-collapse:collapse; }
@@ -23,41 +26,40 @@ th, td { padding:8px; text-align: left; vertical-align: top; word-wrap: break-wo
 .formSection { margin: 20px 0; padding: 0 20px; background-color: #e0e0e0; border-radius:8px; border: 1px solid gray; box-shadow: 0 2px 4px rgba(0,0,0,.3); }
 .formField { margin-right: 10px; }
 
-
-
-@media (max-width: 768px) {
-  /* Turn table structure into block elements */
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-
-  /* Hide table headers visually while keeping accessibility */
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  /* Style each row as a standalone card */
-  tr {
-    margin-bottom: 1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-
-  /* Layout cells cleanly inside the card */
-  td {
-    border: none;
-    padding: 0.25rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
+@media (max-width: 768px) {
+    /* Hide desktop table header */
+    thead {
+        display: none;
+    }
+
+    /* Turn each row into an isolated card */
+    tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 0.75rem;
+        background: #f0f0f0;
+    }
+
+    /* Stack cells vertically inside the card */
+    td {
+        display: block;
+        padding: 0.25rem 0;
+    }
+
+    /* Inject the label before each cell's text */
+    td[data-label]::before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+}
 
 
 /*
