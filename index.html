@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potluck Manager</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <main>
+        <h1>Potluck Manager</h1>
+        <div id="loading-indicator" class="errorLabel hidden"></div>
+
+        <!-- Root section: Display potluck list -->
+        <section id="potlucks-list-section">
+            <h2>Liste des potlucks</h2>
+            <button id="toggle-potluck-form-btn">+ Nouveau potluck</button>
+            <p></p>
+
+            <!-- Form subsection -->
+            <form id="potluck-form" class="hidden formSection">
+                <h3>Formulaire de Potluck</h3>
+                <p class="smaller">(* = champs obligatoires)</p>
+                <input type="hidden" id="potluck-form-id" value="">
+
+                <label for="potluck-form-title">*Titre</label>
+                <input type="text" id="potluck-form-title" class="formField" required placeholder="&quot;Épluchette de blés d'inde&quot;">
+            
+                <label for="potluck-form-date">*Date</label>
+                <input type="date" id="potluck-form-date" class="formField" required>
+            
+                <label for="potluck-form-begin">*Heure début</label>
+                <select id="potluck-form-begin" class="formField" required></select>
+            
+                <label for="potluck-form-end">Heure fin</label>
+                <select id="potluck-form-end"class="formField" ></select>
+                <p></p>
+
+                <label for="potluck-form-location">*Lieu</label>
+                <input type="text" id="potluck-form-location" class="formField" required placeholder="&quot;Chez Mario Risoto&quot;">
+            
+                <label for="potluck-form-organizer">*Organisateur</label>
+                <input type="text" id="potluck-form-organizer" class="formField" required placeholder="&quot;Mario Risoto&quot;">
+                <p></p>
+
+                <button type="submit">Enregistrer</button>
+                <button type="button" id="cancel-potluck-btn">Annuler</button>
+                <p></p>
+            </form>
+
+            <!-- Error messages -->
+            <div id="potlucks-error" class="hidden errorLabel">
+            </div>
+
+            <!-- List subsection -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Date</th>
+                            <th>Début</th>
+                            <th>Fin</th>
+                            <th>Lieu</th>
+                            <th>Organisateur</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="potlucks-table-list">
+                        <!-- Table rows will land here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ul-container">
+                <ul>
+                    <!-- Mobile cards will land here -->
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Inside potluck section: Display contributions and subgoups list -->
+        <section id="items-list-section" class="hidden">
+            <button id="back-btn">← Retour aux potlucks</button>
+            <h2 id="items-section-title">Liste des contributions</h2>
+            <button id="toggle-contribution-form-btn">+ Nouvelle Contribution</button>
+            <button id="toggle-subgroup-form-btn">Gérer les sous-groupes</button>
+            <p></p>
+
+            <!-- Form subsection -->
+            <form id="subgroup-form" class="hidden formSection">
+                <h3>Formulaire de Sous-groupe</h3>
+                <p class="smaller">(* = champs obligatoires)</p>
+                <input type="hidden" id="subgroup-form-id" value="">
+
+                <label for="subgroup-form-name">*Nom(s) :</label>
+                <input type="text" id="subgroup-form-name" required placeholder="&quot;Le roi du BBQ...&quot;">
+                <p></p>
+
+                <button type="submit">Ajouter</button>
+                <button type="button" id="cancel-subgroup-btn">Fermer</button>
+                <p>&nbsp;</p>
+
+                <label for="subgroup-subgroup-select">Modifier ou supprimer un sous-groupe :</label>
+                <select id="subgroup-subgroup-select" required></select>
+                <p></p>
+
+                <button type="button" id="update-subgroup-btn">Modifier</button>
+                <button type="button" id="delete-subgroup-btn">Supprimer</button>
+                <p></p>
+
+                <!-- Error messages -->
+                <div id="subgroups-error" class="hidden errorLabel">
+                </div>
+            </form>
+
+            <form id="contribution-form" class="hidden formSection">
+                <h3>Formulaire de Contribution</h3>
+                <p class="smaller">(* = champs obligatoires)</p>
+                <input type="hidden" id="contribution-form-id" value="">
+                
+                <label for="contribution-subgroup-select">*Sous-groupe :</label>
+                <select id="contribution-subgroup-select" class="formField" required></select>
+            
+                <label for="contribution-form-name">*Contribution :</label>
+                <input type="text" id="contribution-form-name" class="formField" required placeholder="&quot;Lasagne...&quot;">
+                <p></p>
+
+                <label for="contribution-form-category">Catégorie :</label>
+                <input type="text" id="contribution-form-category" class="formField" placeholder="&quot;Repas principal...&quot;">
+
+                <label for="contribution-form-notes">Notes :</label>
+                <input type="text" id="contribution-form-notes" class="formField">
+                <p></p>
+
+                <button type="submit">Enregistrer</button>
+                <button type="button" id="cancel-contribution-btn">Annuler</button>
+                <p></p>
+            </form>
+
+            <!-- Error messages -->
+            <div id="contributions-error" class="hidden errorLabel">
+            </div>
+            
+            <!-- List subsection -->
+            <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contribution</th>
+                        <th>Sous-groupe</th>
+                        <th>Catégorie</th>
+                        <th>Notes</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="items-table-list">
+                    <!-- Table rows will land here -->
+                </tbody>
+            </table>
+            </div>
+
+            <div class="ul-container">
+                <ul>
+                    
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <!-- Templates -->
+    <template id="potlucks-table-template">
+        <tr class="potlucks-table">
+            <td data-label="Titre: " class="potlucks-title"></td>
+            <td data-label="Date: " class="potlucks-date"></td>
+            <td data-label="Début: " class="potlucks-begin"></td>
+            <td data-label="Fin: " class="potlucks-end"></td>
+            <td data-label="Lieu: " class="potlucks-location"></td>
+            <td data-label="Organisateur: " class="potlucks-organizer"></td>
+            <td>
+                <button class="potlucks-modify-btn">...</button>
+                <button class="potlucks-delete-btn">X</button>
+            </td>
+        </tr>
+    </template>
+
+    <template id="items-table-template">
+        <tr class="items-table">
+            <td data-label="Contribution: " class="items-contribution"></td>
+            <td data-label="Sous-groupe: " class="items-subgroup"></td>
+            <td data-label="Catégorie: " class="items-category"></td>
+            <td data-label="Notes: " class="items-notes"></td>
+            <td>
+                <button class="items-modify-btn">...</button>
+                <button class="items-delete-btn">X</button>
+            </td>
+        </tr>
+    </template>
+
+    <template id="potlucks-card-template">
+        <li>
+            <div>Titre: <span class="potlucks-title"></span></div>
+            <div>Date: <span class="potlucks-date"></span></div>
+            <div>Début: <span class="potlucks-begin"></span></div>
+            <div>Fin: <span class="potlucks-end"></span></div>
+            <div>Lieu: <span class="potlucks-location"></span></div>
+            <div>Organisateur: <span class="potlucks-organizer"></span></div>
+            <button class="potlucks-modify-btn">Modifier</button>
+            <button class="potlucks-delete-btn">Supprimer</button>
+        </li>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>

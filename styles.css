@@ -1,0 +1,128 @@
+
+
+body { font-family: sans-serif; background: #e0e0e0; }
+main { max-width:1024px; margin:40px auto; padding: 30px; background: white; border-radius:8px; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
+.hidden { display: none; }
+.smaller { font-size: 0.7rem; }
+h1 { color:#1565C0; }
+button { user-select: none; border-radius:8px; background: #d0d0d0; }
+.errorLabel { margin: 20px 50px; padding: 20px; font-weight: bold; background: #f0a0a0; }
+
+table { table-layout: fixed; width:100%; border-collapse:collapse; }
+th { background:#5da5f9; }
+td { border-bottom: 1px solid #dddddd; }
+th, td { padding:8px; text-align: left; vertical-align: top; word-wrap: break-word; overflow-wrap: break-word; white-space: normal; }
+.potluckTable th:nth-child(1), .potluckTable td:nth-child(1) { width: 25%; }  /* titre */
+.potluckTable th:nth-child(2), .potluckTable td:nth-child(2) { width: 10%; }  /* event_date */
+.potluckTable th:nth-child(3), .potluckTable td:nth-child(3) { width: 10%; }  /* time_begin */
+.potluckTable th:nth-child(4), .potluckTable td:nth-child(4) { width: 10%; }  /* time_end */
+.potluckTable th:nth-child(5), .potluckTable td:nth-child(5) { width: 20%; }  /* location */
+.potluckTable th:nth-child(6), .potluckTable td:nth-child(6) { width: 15%; }  /* organizer */
+.potluckTable th:nth-child(7), .potluckTable td:nth-child(7) { width: 10%; }  /* action buttons */
+
+.formSection { margin: 20px 0; padding: 0 20px; background-color: #e0e0e0; border-radius:8px; border: 1px solid gray; box-shadow: 0 2px 4px rgba(0,0,0,.3); }
+.formField { margin-right: 10px; }
+
+
+
+@media (max-width: 768px) {
+  /* Turn table structure into block elements */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers visually while keeping accessibility */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* Style each row as a standalone card */
+  tr {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  /* Layout cells cleanly inside the card */
+  td {
+    border: none;
+    padding: 0.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+
+/*
+
+footer { max-width:700px; margin:40px auto; margin-top: 100px; }
+.container { max-width:700px; margin:40px auto; }
+
+a { display: inline-block; margin-right: 10px; }
+.card { background:white; padding:30px; margin-bottom:24px;
+    border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,.1); }
+h2 { color:#546E7A; }
+label { display:block; margin-top:16px; font-weight:bold; }
+input, textarea { width:100%; padding:8px; margin-top:6px;
+    border:1px solid #ccc; border-radius:4px;
+    box-sizing:border-box; resize: none; }
+button { margin-top:20px; padding:10px 24px;
+    background:#1565C0; color:white;
+    border:none; border-radius:4px; cursor:pointer; }
+.err { margin-top:16px; padding:12px; background:#FFEBEE;
+    border-left:4px solid #C62828; color:#C62828; }
+.err ul{ margin:8px 0 0 20px; }
+.ok { margin-top:16px; padding:12px; background:#E8F5E9;
+    border-left:4px solid #2E7D32; color:#2E7D32; }
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+.radio-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.radio-row input[type="radio"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+.radio-row label {
+    width: auto;
+    margin: 0;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+
+
+td form { margin: 0; display: inline-block; }
+td button { margin: 0; padding: 4px 8px; color: white; font-weight: 800; border: none; border-radius: 4px; cursor: pointer; }
+.red { background: #ff6666; }
+.green { background: #01b03d; }
+.p_haute { font-weight: 800; color: red; }
+.p_normale { font-weight: 800; color: darkorange; }
+.p_basse { font-weight: 800; color: green; }
+.s_enattente { font-weight: 800; color: black; }
+.s_encours { font-weight: 800; color: green; }
+.s_completee { font-weight: 800; color: gray; }
+
+
+
+#champ-resultat input[value="Réussi"] {
+            color: green;
+            font-weight: bold;
+        }
+*/
+
+
