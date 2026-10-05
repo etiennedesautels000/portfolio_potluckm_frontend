@@ -1,4 +1,4 @@
-# Portfolio Projet : Potluck Manager - Frontend
+# (Portfolio) Projet personnel : Potluck Manager - Frontend
 
 Une application web qui gère les contributions des invités à un potluck.  
 Visiter la page démo (voir lien plus bas)
@@ -14,6 +14,7 @@ Visiter la page démo (voir lien plus bas)
 
 ### Stack technique
 - Langage: **Javascript, HTML, CSS**
+- Architecture: single-page application (SPA)
 - Lien avec le service web (API) du même projet
 
 ### Démo en ligne
